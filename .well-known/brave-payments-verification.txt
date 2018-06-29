@@ -1,0 +1,4 @@
+This is a Brave Payments publisher verification file.
+
+Domain: yachtcaptain23.github.io
+Token: eaf020c6d32e34d38319e34dc198c991b2b2e547c3899761d66219e50055e502
