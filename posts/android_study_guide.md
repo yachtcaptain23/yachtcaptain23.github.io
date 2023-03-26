@@ -1,8 +1,6 @@
 ---
-title: 'Audit log for status changes'
+title: 'Android Study Guide'
 date: '2023-03-26'
 post_type: 'project'
 visible: 'false'
 ---
-
-

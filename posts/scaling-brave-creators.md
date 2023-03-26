@@ -1,6 +1,8 @@
 ---
-title: 'How Brave Scaled Creators to a Million Users'
+title: 'How We Brave Scaled Creators to a Million Users'
 date: '2023-03-09'
+post_type: 'project'
+visible: 'true'
 ---
 
 
