@@ -1,5 +1,5 @@
 ---
-title: 'Years old revenue-hurting, client-facing bug'
+title: 'A Years Old Revenue-hurting, Client-facing Database Locking Bug'
 date: '2023-03-18'
 post_type: 'project'
 visible: 'true'
