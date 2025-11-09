@@ -8,7 +8,7 @@ import Date from '../components/date';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
-  const allNotionData = getNotionPosts();
+  const allNotionData = await getNotionPosts();
   return {
     props: {
       allPostsData,
@@ -17,7 +17,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ allPostsData}) {
+export default function Home({ allPostsData, allNotionData }) {
   return (
     <Layout home>
       <Head>
