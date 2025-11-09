@@ -28,7 +28,7 @@ export default function Home({ allPostsData}) {
           I'm a Xoogler, ex-Brave, ex-Soothe, and former Amazonian. I have industry experience in Android apps and OS, Chromium browser, building backends for millions of users, delighting with frontend websites, and convincing skeptic coworkers with data analytics. 
         </p>
         <p>
-          I'm well-versed in Java, Kotlin, Python, and Ruby and have professional experience working in Javascript, Golang, and C++. 
+          I'm well-versed in Java, Kotlin, Python, and Ruby and have additional professional experience working in Javascript, Golang, and C++. 
         </p>
         <p>
           When I'm not working, I like rowing, lifting, and reading textbooks and fiction.
@@ -37,7 +37,7 @@ export default function Home({ allPostsData}) {
           I hold Master's and Bachelor's of Electrical and Computer Engineering degrees from Carnegie Mellon University.
         </p>
         <p>
-          My avatar is AI-generated from a prompt about my Papillon, Lafiel, playing one of my favorite games, poker. 
+          My avatar is AI-generated from a prompt about my Papillon, Lafiel, playing one of my favorite games, hold-em Texas poker. 
         </p>
       </section>
 
