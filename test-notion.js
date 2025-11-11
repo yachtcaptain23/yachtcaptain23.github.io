@@ -19,7 +19,16 @@ async function testNotion() {
     });
     
     console.log('SUCCESS! Got', response.results.length, 'results');
-    console.log('First result:', response.results[0]?.properties);
+    
+    // Log the first result's properties
+    if (response.results.length > 0) {
+      const firstPage = response.results[0];
+      console.log('\n=== PROPERTY NAMES ===');
+      console.log(Object.keys(firstPage.properties));
+      
+      console.log('\n=== FULL PROPERTIES ===');
+      console.log(JSON.stringify(firstPage.properties, null, 2));
+    }
   } catch (error) {
     console.error('ERROR:', error.message);
   }
