@@ -50,3 +50,16 @@
 .lightText {
   color: #666;
 }
+
+.markdown p {
+  margin-bottom: 1rem;
+}
+
+.markdown h1, .markdown h2, .markdown h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown ul, .markdown ol {
+  margin-bottom: 1rem;
+}

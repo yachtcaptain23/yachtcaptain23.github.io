@@ -1,36 +1,50 @@
 const { Client } = require("@notionhq/client");
+const { NotionToMarkdown } = require("notion-to-md");
 
 async function testNotion() {
   const NOTION_TOKEN = process.env.NOTION_TOKEN;
-  const NOTION_DATABASE_ID = "2a66c377946e8016ba7af9859f5fd1a8";
-  
-  console.log('Token exists:', !!NOTION_TOKEN);
-  console.log('Database ID:', NOTION_DATABASE_ID);
+  // Use the Intro page ID - get this from the URL when you click "Intro" in Notion
+  const INTRO_PAGE_ID = "2a66c377-946e-80a2-be44-fae2f8488b30"; // From your earlier link
   
   const notion = new Client({ auth: NOTION_TOKEN });
   
-  console.log('Client created');
-  console.log('databases object:', typeof notion.databases);
-  console.log('databases.query:', typeof notion.databases.query);
-  
   try {
-    const response = await notion.databases.query({
-      database_id: NOTION_DATABASE_ID,
-    });
+    console.log('Fetching content for Intro page:', INTRO_PAGE_ID);
     
-    console.log('SUCCESS! Got', response.results.length, 'results');
+    // Get the content
+    const n2m = new NotionToMarkdown({ notionClient: notion });
+    const mdblocks = await n2m.pageToMarkdown(INTRO_PAGE_ID);
     
-    // Log the first result's properties
-    if (response.results.length > 0) {
-      const firstPage = response.results[0];
-      console.log('\n=== PROPERTY NAMES ===');
-      console.log(Object.keys(firstPage.properties));
-      
-      console.log('\n=== FULL PROPERTIES ===');
-      console.log(JSON.stringify(firstPage.properties, null, 2));
-    }
+    console.log('\n=== MDBLOCKS LENGTH ===');
+    console.log(mdblocks.length);
+    
+    const mdString = n2m.toMarkdownString(mdblocks);
+    
+    console.log('\n=== MDSTRING ===');
+    console.log(mdString);
+    
+    // Dynamic import for remark
+    const { remark } = await import('remark');
+    const html = (await import('remark-html')).default;
+    
+    // Try using the mdString directly if it's a string
+    const markdownContent = typeof mdString === 'string' ? mdString : mdString.parent;
+    
+    console.log('\n=== MARKDOWN CONTENT ===');
+    console.log(markdownContent.substring(0, 500)); // First 500 chars
+    
+    // Convert to HTML
+    const processedContent = await remark()
+      .use(html)
+      .process(markdownContent);
+    const contentHtml = processedContent.toString();
+    
+    console.log('\n=== HTML (first 500 chars) ===');
+    console.log(contentHtml.substring(0, 500));
+    
   } catch (error) {
     console.error('ERROR:', error.message);
+    console.error(error.stack);
   }
 }
 
