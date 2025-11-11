@@ -6,7 +6,7 @@
     "deploy": "next build && touch out/.nojekyll && git add out/ && git commit -m \"Deploy\" && git subtree push --prefix out origin gh-pages"
   },
   "dependencies": {
-    "@notionhq/client": "^5.3.0",
+    "@notionhq/client": "^2.3.0",
     "date-fns": "^2.29.3",
     "gray-matter": "^4.0.3",
     "next": "latest",
