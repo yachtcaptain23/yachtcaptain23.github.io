@@ -23,53 +23,54 @@ export default function Home({ allPostsData, allNotionData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
+
+      <section className={`${utilStyles.headingMd} ${utilStyles.bioSection} ${utilStyles.section}`}>
         <p>
-          Welcome! 
-        </p>
-        <p> 
-          I'm a Xoogler, ex-Brave, ex-Soothe, and former Amazonian. I have industry experience in Android apps and Android OS, Chromium browser, building backends for millions of users, delighting with frontend websites, and convincing skeptic coworkers with data analytics. 
+          Welcome!
         </p>
         <p>
-          I'm well-versed in Java, Kotlin, Python, and Ruby and have additional professional experience working in Javascript, Golang, and C++. 
+          I'm a Xoogler, ex-Brave, ex-Soothe, and former Amazonian. I have industry experience in Android apps and Android OS, Chromium browser, building backends for millions of users, delighting with frontend websites, and convincing skeptic coworkers with data analytics.
         </p>
         <p>
-          When I'm not working, I like rowing, lifting, and reading both textbooks and fiction. 
+          I'm well-versed in Java, Kotlin, Python, and Ruby and have additional professional experience working in Javascript, Golang, and C++.
+        </p>
+        <p>
+          When I'm not working, I like rowing, lifting, and reading both textbooks and fiction.
         </p>
         <p>
           I hold a Master's and Bachelor's of Electrical and Computer Engineering degrees from Carnegie Mellon University.
         </p>
         <p>
-          My avatar is AI-generated from a prompt about my Papillon, Lafiel, playing one of my favorite games, hold-em Texas poker. 
+          My avatar is AI-generated from a prompt about my Papillon, Lafiel, playing one of my favorite games, hold-em Texas poker.
         </p>
       </section>
 
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+      <section className={utilStyles.section}>
         <h2 className={utilStyles.headingLg}>Writings</h2>
         <ul className={utilStyles.list}>
           {allNotionData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
-            <Link href={`/posts/${id}`}>{title}</Link>
-            <br />
-            <small className={utilStyles.lightText}>
-              <Date dateString={date} />
-            </small>
-          </li>
+              <Link href={`/posts/${id}`}>{title}</Link>
+              <br />
+              <small className={utilStyles.lightText}>
+                <Date dateString={date} />
+              </small>
+            </li>
           ))}
         </ul>
       </section>
 
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+      <section className={utilStyles.section}>
         <h2 className={utilStyles.headingLg}>Projects</h2>
         <ul className={utilStyles.list}>
           {allPostsData.filter(item => item.post_type == 'project' && item.visible == 'true').map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
-            <Link href={`/posts/${id}`}>{title}</Link>
-            <br />
-            <small className={utilStyles.lightText}>
-              <Date dateString={date} />
-            </small>
-          </li>
+              <Link href={`/posts/${id}`}>{title}</Link>
+              <br />
+              <small className={utilStyles.lightText}>
+                <Date dateString={date} />
+              </small>
+            </li>
           ))}
         </ul>
       </section>
